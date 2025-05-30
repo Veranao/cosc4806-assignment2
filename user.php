@@ -28,6 +28,12 @@
       $rows = $statement->fetchAll(PDO::FETCH_ASSOC);  
       return $rows;
     }
+
+    public function validate_user ($username, $password) {
+      $user = $this->get_user($username);
+      $hash = $user['password'];
+      return password_verify($password, $hash);
+    }
   }
 
 
