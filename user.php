@@ -34,6 +34,11 @@
       $hash = $user['password'];
       return password_verify($password, $hash);
     }
+
+    public function checkUserExists($username) {
+      $user = $this->get_user($username);
+      return $user != null;
+    }
   }
 
 
